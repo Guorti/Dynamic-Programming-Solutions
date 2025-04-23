@@ -85,6 +85,7 @@ def rod_cutting_BottomUp(P,n):
 
 # 4. Algoritmo Bottom Up con backtracking
 # Utilizamos backtracking para saber donde hicimos los cortes necesarios para llegar a la mayor ganancia
+#Esto resulta en un tiempo cuadrático O(n^2), O(n) espacio
 def rod_cutting_BU_Backtracking(P,n):
     M = [-math.inf for _ in range (n+1)]
     S = [None] * (n+1)
@@ -96,7 +97,6 @@ def rod_cutting_BU_Backtracking(P,n):
                 # Donde determinamos el mejor valor v, también asignamos la posición del corte que resulto en ello.
                 M[i] = v
                 S[i] = j
-
     m = n
     T = []
     while m > 0:
@@ -108,6 +108,6 @@ def rod_cutting_BU_Backtracking(P,n):
 #print(rod_cutting_Naive([1,5,8,9],4))
 #print(rod_cutting_Memoization([1,5,8,9],4))
 #print(rod_cutting_BottomUp([1,5,8,9],4))
-print(rod_cutting_BU_Backtracking([1,5,8,9],4))
+print(rod_cutting_BU_Backtracking([2,5,9,10,12,13,15,16],8))
 
             
