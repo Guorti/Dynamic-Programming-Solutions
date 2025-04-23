@@ -1,5 +1,5 @@
 import math
-# Algoritmo Inocente/Evidente
+# 1. Algoritmo Inocente/Evidente
 # Se calculan los mismos numeros muchas veces llevando a una complejidad exponencial.
 def nth_fibonacci_Naive(n):
     if n<=1:
@@ -7,7 +7,7 @@ def nth_fibonacci_Naive(n):
     # Llamada recursiva
     return nth_fibonacci_Naive(n-1) + nth_fibonacci_Naive(n-2)
 
-# Algoritmo con memoización
+# 2. Algoritmo con memoización
 # Guardamos calculos ya realizados en la tabla de memoización, evitando redundantes y la complejidad se convierte lineal
 def nth_fibonacci_Memoization(n):
     M = [-math.inf for _ in range (n)]
@@ -23,7 +23,7 @@ def nth_fibonacci_M(n,M):
             M[n-1] = nth_fibonacci_M(n-1,M) + nth_fibonacci_M(n-2,M)
     return M[n-1]
 
-# Algoritmo Bottom-Up
+# 3. Algoritmo Bottom-Up
 def nth_fibonacci_BottomUp(n):
     M = [-math.inf for _ in range (n)]
     return nth_fibonacci_M(n,M)
