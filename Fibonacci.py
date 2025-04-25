@@ -8,7 +8,7 @@ def nth_fibonacci_Naive(n):
     return nth_fibonacci_Naive(n-1) + nth_fibonacci_Naive(n-2)
 
 # 2. Algoritmo con memoización
-# Guardamos calculos ya realizados en la tabla de memoización, evitando redundantes y la complejidad se convierte lineal
+# Guardamos calculos ya realizados en la tabla de memoización, evitando redundantes y la complejidad se convierte...
 def nth_fibonacci_Memoization(n):
     M = [-math.inf for _ in range (n)]
     return nth_fibonacci_M(n,M)
