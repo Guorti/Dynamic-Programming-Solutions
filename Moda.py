@@ -36,16 +36,30 @@ def Mode_Memo_Aux (S, n, i, M):
 def Mode_Memoization_BottomUp (S):
     n = len (S)
     M = [[0 for _ in range(n+1)] for _ in range(n+1)]
+    b = []
     pprint.pprint(M)
     for j in range (1, n+1):
         for k in range (1, n+1):
             if S[j-1] == S[k-1]:
                 M[j][k] = M[j-1][k] + 1
+                b.append((j,k))
                 pprint.pprint(M)
             else:
                 M[j][k] = max(M[j-1][k-1], M[j-1][k])
                 pprint.pprint(M)
-    return M[j][k]
+
+    a = n
+    c = n
+    T = []
+
+    i = 0
+    while a and c > 0:
+        T.append(M[a-b[i][0]][c-b[i][1]])
+        a = a-b[i][0]
+        c = c-b[i][1]
+        i = i+1
+
+    return M[j][k], T
 
 
 
@@ -55,6 +69,6 @@ def Mode_Memoization_BottomUp (S):
 #print (Mode_Memoization([1, 2, 2, 3, 4, 2, 5, 6, 2, 7, 2]))
 #print (Mode_Memoization([1, 2, 3, 1]))
 #print (Mode_Memoization_BottomUp([1, 2, 2, 3, 4, 2, 5, 6, 2, 7, 2]))
-print (Mode_Memoization_BottomUp([1, 2, 3, 1]))
+print (Mode_Memoization_BottomUp([1, 2, 1, 1]))
 
 
